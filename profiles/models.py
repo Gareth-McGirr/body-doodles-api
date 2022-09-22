@@ -10,6 +10,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=255, blank=True)
     content = models.TextField(blank=True)
     image = models.ImageField(upload_to="profile_images/", default="profile_images/default_profile.jpg")
+    is_artist = models.BooleanField(default=False)
 
     class Meta:
         ordering = ["-created_at"]
