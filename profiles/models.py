@@ -11,7 +11,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=255, blank=True)
     content = models.TextField(blank=True)
     image = models.ImageField(upload_to="profile_images/", default="profile_images/default_profile.jpg")
-    artistId = models.IntegerField(null=True)
+    artistId = models.IntegerField(default=0)
 
     class Meta:
         ordering = ["-created_at"]
