@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 from django.db import models
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
@@ -10,7 +11,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=255, blank=True)
     content = models.TextField(blank=True)
     image = models.ImageField(upload_to="profile_images/", default="profile_images/default_profile.jpg")
-    is_artist = models.BooleanField(default=False)
+    artistId = models.IntegerField(null=True)
 
     class Meta:
         ordering = ["-created_at"]
