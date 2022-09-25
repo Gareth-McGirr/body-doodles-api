@@ -1,4 +1,5 @@
-from rest_framework import generics
+from django.db.models import Count
+from rest_framework import generics, permissions
 from drf_api.permissions import IsOwnerOrReadOnly
 from .models import Artist
 from .serializers import ArtistSerializer
@@ -9,8 +10,10 @@ class ArtistList(generics.ListCreateAPIView):
     List comments or create a comment if logged in.
     """
     serializer_class = ArtistSerializer
-    permission_classes = [IsOwnerOrReadOnly]
-    queryset = Artist.objects.all()
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = Artist.objects.annotate(
+        reviews_count=Count('review', distinct=True),
+    ).order_by('-created_at')
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
