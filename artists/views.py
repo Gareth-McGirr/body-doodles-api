@@ -1,7 +1,8 @@
-from django.db.models import Count
+from django.db.models import Count, Avg
 from rest_framework import generics, permissions
 from drf_api.permissions import IsOwnerOrReadOnly
 from .models import Artist
+from reviews.models import Review
 from .serializers import ArtistSerializer
 
 
@@ -12,7 +13,8 @@ class ArtistList(generics.ListCreateAPIView):
     serializer_class = ArtistSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Artist.objects.annotate(
-        reviews_count=Count('review', distinct=True),
+        reviews_count=Count('reviews', distinct=True),
+        average_rating=Avg('reviews__rating')
     ).order_by('-created_at')
 
     def perform_create(self, serializer):
@@ -25,4 +27,7 @@ class ArtistDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = ArtistSerializer
-    queryset = Artist.objects.all()
+    queryset = Artist.objects.annotate(
+        reviews_count=Count('reviews', distinct=True),
+        average_rating=Avg('reviews__rating')
+    ).order_by('-created_at')
