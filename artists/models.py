@@ -4,9 +4,11 @@ from django.contrib.auth.models import User
 
 class Artist(models.Model):
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
-    speciality = models.CharField(max_length=255, blank=True)
+    speciality = models.CharField(max_length=255)
     hourly_rate = models.IntegerField()
     location = models.CharField(max_length=255, blank=True)
+    email = models.EmailField(null=True, blank=True)
+    phone= models.BigIntegerField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

@@ -20,6 +20,6 @@ class ArtistSerializer(serializers.ModelSerializer):
         model = Artist
         fields = [
             'id', 'owner', 'is_owner', 'profile_id', 'profile_image',
-            'profile_image', 'speciality', 'hourly_rate', 'location',
-            'created_at', 'updated_at', 'reviews_count', 'average_rating',
+            'profile_image', 'speciality', 'hourly_rate', 'location', 'email',
+            'phone','created_at', 'updated_at', 'reviews_count', 'average_rating',
         ]
