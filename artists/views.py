@@ -23,6 +23,7 @@ class ArtistList(generics.ListCreateAPIView):
     search_fields = [
         'owner__username',
         'speciality',
+        'location'
     ]
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
