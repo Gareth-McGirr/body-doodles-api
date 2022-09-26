@@ -2,7 +2,6 @@ from django.db.models import Count, Avg
 from rest_framework import generics, permissions
 from drf_api.permissions import IsOwnerOrReadOnly
 from .models import Artist
-from reviews.models import Review
 from .serializers import ArtistSerializer
 
 
