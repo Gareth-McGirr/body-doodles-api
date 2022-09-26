@@ -1,5 +1,5 @@
 from django.db.models import Count, Avg
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, filters
 from drf_api.permissions import IsOwnerOrReadOnly
 from .models import Artist
 from .serializers import ArtistSerializer
@@ -16,6 +16,14 @@ class ArtistList(generics.ListCreateAPIView):
         average_rating=Avg('reviews__rating')
     ).order_by('-created_at')
 
+    filter_backends = [
+        filters.SearchFilter
+    ]
+
+    search_fields = [
+        'owner__username',
+        'speciality',
+    ]
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
