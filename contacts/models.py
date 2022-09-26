@@ -3,20 +3,12 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-# Choice fields
-REASON_CHOICES = (
-    ("general", "General Enquiry"),
-    ("account_issue", "Report an issue with your account"),
-    ("site_issue", "Report issue with site"),
-    ("report", "Report a user")
-)
+
 
 class Contact(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    reason= models.CharField(
-        max_length=25, choices=REASON_CHOICES, default='general'
-    )
-    content = models.TextField()
+    reason= models.CharField(max_length=50)
+    content = models.TextField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
