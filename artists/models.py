@@ -8,7 +8,7 @@ class Artist(models.Model):
     hourly_rate = models.IntegerField()
     location = models.CharField(max_length=255, blank=True)
     email = models.EmailField(null=True, blank=True)
-    phone= models.BigIntegerField(null=True, blank=True)
+    phone= models.CharField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
