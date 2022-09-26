@@ -9,8 +9,6 @@ class ContactSerializer(serializers.ModelSerializer):
     
     """
     owner = serializers.ReadOnlyField(source="owner.username")
-    reason = serializers.ReadOnlyField()
-    content = serializers.ReadOnlyField()
     profile_id = serializers.ReadOnlyField(source="owner.profile.id")
     profile_image = serializers.ReadOnlyField(source="owner.profile.image.url")
     created_at = serializers.SerializerMethodField()
@@ -28,11 +26,11 @@ class ContactSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "owner",
-            'reason',
-            'content',
+            "reason",
+            "content",
             "profile_id",
             "profile_image",
             "created_at",
             "updated_at",
-            "content",
+            
         ]

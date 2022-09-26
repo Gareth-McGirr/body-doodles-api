@@ -1,5 +1,6 @@
 from rest_framework import generics, permissions
 from .models import Contact
+from drf_api.permissions import IsOwnerOrReadOnly
 from .serializers import ContactSerializer
 
 
@@ -8,7 +9,7 @@ class ContactList(generics.ListCreateAPIView):
     List contacts or create a contact if logged in.
     """
     serializer_class = ContactSerializer
-    permission_classes = [permissions.IsAdminUser]
+    permission_classes = [IsOwnerOrReadOnly]
     queryset = Contact.objects.all()
 
     def perform_create(self, serializer):
