@@ -1,5 +1,22 @@
+import os
+from uuid import uuid4
 from django.db import models
 from django.contrib.auth.models import User
+
+
+def rename_file(instance, filename):
+    """Rename file before uploading to unique
+    uuid to prevent duplicate image names"""
+    upload_to = 'posts'
+    ext = filename.split('.')[-1]
+    # get filename
+    if instance.pk:
+        filename = '{}.{}'.format(instance.pk, ext)
+    else:
+        # set filename as random string
+        filename = '{}.{}'.format(uuid4().hex, ext)
+    # return the whole path to the file
+    return os.path.join(upload_to, filename)
 
 
 class Post(models.Model):
@@ -29,7 +46,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField(blank=True)
     image = models.ImageField(
-        upload_to='posts_images/', default='posts_images/default_post.jpg', blank=True
+        upload_to=rename_file, default='posts_images/default_post.jpg', blank=True
     )
     image_filter = models.CharField(
         max_length=32, choices=image_filter_choices, default='normal'
