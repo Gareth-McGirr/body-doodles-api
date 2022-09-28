@@ -58,10 +58,79 @@ This Epic covers all API endpoint creation and database connections relating to 
     * Used for version control
 * Github
     * Repository for storing code base and docs
+<hr>
 
+## Python Packages
+<details open>
+<summary> Details of packages </summary>
 
+* dj-database-url==1.0.0
+    * Used to parse the DATABASE_URL connection settings
+* dj-rest-auth==2.2.5
+    * Used with auth system
+* Django==4.1.1
+    * Main framework used to start the project
+* django-allauth==0.50.0
+    * Used for authentication
+* django-cors-headers==3.13.0
+    * Used for Cross-Origin Resource Sharing (CORS) headers to responses
+* django-filter==22.1
+    * Used to filter API results in serializers
+* django-storages==1.13.1
+    * Used to help connect with the google cloud storage bucket
+* djangorestframework==3.13.1
+    * Framework used to build the API endpoints
+* djangorestframework-simplejwt==5.2.0
+    * Used with djange rest framework to create access tokens for authentication
+* gunicorn==20.1.0
+    * Used for deployment of WSGI applications
+* Pillow==9.2.0
+    * Imaging Libray - used for image uploading
+* psycopg2==2.9.3
+    * PostgreSQL database adapter to allow deployed application to perform crud on the postgresql db
+* PyJWT==2.5.0
+    * For creating the Python Json Web Tokens for authentication
 
-### Version Control
+Installed as package dependcies with above installations:
+* asgiref==3.5.2
+* autopep8==1.7.0
+* cachetools==5.2.0
+* certifi==2022.6.15.1
+* cffi==1.15.1
+* charset-normalizer==2.1.1
+* cryptography==38.0.1
+* defusedxml==0.7.1
+* idna==3.3
+* oauthlib==3.2.1
+* protobuf==4.21.5
+* pyasn1==0.4.8
+* pyasn1-modules==0.2.8
+* pycodestyle==2.9.1
+* pycparser==2.21
+* python3-openid==3.2.0
+* pytz==2022.2.1
+* requests==2.28.1
+* requests-oauthlib==1.3.1
+* rsa==4.9
+* six==1.16.0
+* sqlparse==0.4.2
+* toml==0.10.2
+* types-cryptography==3.3.23
+* tzdata==2022.2
+* urllib3==1.26.12
+
+Auto installed as package dependencies with django-storages[GOOGLE] to aid connection to google cloud buckets for static image hosting:
+* google-api-core==2.10.0
+* google-auth==2.11.0
+* google-cloud-core==2.3.2
+* google-cloud-storage==2.5.0
+* google-crc32c==1.5.0
+* google-resumable-media==2.3.3
+* googleapis-common-protos==1.56.4
+</details>
+<hr>
+
+## **Version Control** 
 
 The site was created using the Visual Studio Code editor and pushed to github to the remote repository ‘Gars-Steakhouse’.
 
@@ -75,7 +144,7 @@ The following git commands were used throughout development to push code to the 
 
 <hr>
 
-### Google Cloud Storage
+## **Google Cloud Storage**
 
 To set up bucket and service account. Please see - [Medium Article](https://medium.com/@mohammedabuiriban/how-to-use-google-cloud-storage-with-django-application-ff698f5a740f). The service account credentials will be needed for deployment.
 
@@ -91,8 +160,9 @@ Create a .profile file with the following line inside:
 ```echo ${GOOGLE_CREDENTIALS} > /app/ga-creds.json```
 
 This line is used to instruct heroku that the GOOGLE_CREDENTIALS var is called ga-creds.json
+<hr>
 
-## Credits
+## **Credits**
 
 ### Content:
 <br>
