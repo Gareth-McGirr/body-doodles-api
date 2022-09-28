@@ -42,3 +42,20 @@ This Epic covers all API endpoint creation and database connections relating to 
 **Reviews**
 
 This Epic covers all API endpoint creation and database connections relating to the CRUD functionality of Artist reviews and average rating as displayed on user profile.
+
+### Google Cloud Storage
+
+To set up bucket and service account. Please see - [Medium Article](https://medium.com/@mohammedabuiriban/how-to-use-google-cloud-storage-with-django-application-ff698f5a740f). The service account credentials will be needed for deployment.
+
+**Code** 
+
+Packages needed for deployment:
+
+* django-storages[google]
+* Pillow
+
+Create a .profile file with the following line inside:
+
+```echo ${GOOGLE_CREDENTIALS} > /app/ga-creds.json```
+
+This line is used to instruct heroku that the GOOGLE_CREDENTIALS var is called ga-creds.json
