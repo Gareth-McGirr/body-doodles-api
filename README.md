@@ -1,16 +1,37 @@
-# ***Body Doodles API***
+# Body Doodles API
 
 Body Doodles API is the backend service used by the [Body Doodles Application](https://github.com/Gareth-McGirr/body-doodles).
 <hr>
 <br>
 
-## **Development Goals**
+## Table of Contents
+* [Development Goals](#Development-Goals)
+* [Agile Planning](#Agile-Planning)
+    * [Epics](#Epics)
+    * [User Stories](#User-Stories)
+* [API End Points](#API-End-Points)
+* [Future Features](#Features-Left-to-Implement)
+* [Database Design](#Database-Design)
+* [Security](#Security)
+* [Technologies](#Technologies)
+* [Testing](#Testing)
+* [Deployment](#Deployment)
+    * [Version Control](#Version-Control)
+    * [Heroku Deployment](#Heroku-Deployment)
+    * [GCP](#Google-Cloud-Platform)
+    * [Run Locally](#Run-Locally)
+    * [Fork Project](#Fork-Project)
+* [Credits](#Credits)
+  * [Content](#Content)
+  * [Acknowledgements](#Acknowledgements)
+
+## Development Goals
 
 The goal of this API is provide a backend service to allow the Body Doodles front end application to perform, Create, Read, Update and Delete operations via the user interface.
 <hr>
 <br>
 
-## **Agile Planning**
+## Agile Planning
 
 This project was developed using agile methodologies by delivering small features in incremental sprints. There were 3 sprints in total, spaced out evenly over three weeks.
 
@@ -18,8 +39,7 @@ All stories were assigned to epics, prioritized under the labels, Must have, sho
 
 The Kanban board was created using github projects and can be located [here](https://github.com/users/Gareth-McGirr/projects/1/views/1) and can be viewed to see more information on the project cards. All stories except the documentation tasks have a full set of acceptance criteria in order to define the functionality that marks that story as complete.
 
-IMAGE HERE
-
+![Kanban](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/kanban.PNG)
 
 ### Epics
 
@@ -49,6 +69,10 @@ This Epic covers all API endpoint creation and database connections relating to 
 <hr>
 <br>
 
+## Database Design
+
+![ER Diagram](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/erdiagram.jpg)
+
 ## Technologies
 
 * Django
@@ -63,6 +87,7 @@ This Epic covers all API endpoint creation and database connections relating to 
     * Used for version control
 * Github
     * Repository for storing code base and docs
+
 <hr>
 <br>
 
@@ -137,7 +162,7 @@ Auto installed as package dependencies with django-storages[GOOGLE] to aid conne
 <hr>
 <br>
 
-## **Version Control** 
+## Version Control
 
 The site was created using the Visual Studio Code editor and pushed to github to the remote repository ‘Gars-Steakhouse’.
 
@@ -152,7 +177,7 @@ The following git commands were used throughout development to push code to the 
 <hr>
 <br>
 
-## **Heroku Deployment**
+## Heroku Deployment
 
 The site was deployed to Heroku. The steps to deploy are as follows:
 
@@ -183,7 +208,7 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 <hr>
 <br>
 
-## **Google Cloud Storage**
+## Google Cloud Storage
 
 To set up bucket and service account. Please see - [Medium Article](https://medium.com/@mohammedabuiriban/how-to-use-google-cloud-storage-with-django-application-ff698f5a740f). The service account credentials will be needed for deployment.
 
@@ -201,7 +226,7 @@ Create a .profile file with the following line inside:
 This line is used to instruct heroku that the GOOGLE_CREDENTIALS var is called ga-creds.json
 <hr>
 
-## **Credits**
+## Credits
 
 ### Content:
 <br>
