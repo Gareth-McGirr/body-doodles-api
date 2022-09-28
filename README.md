@@ -59,3 +59,21 @@ Create a .profile file with the following line inside:
 ```echo ${GOOGLE_CREDENTIALS} > /app/ga-creds.json```
 
 This line is used to instruct heroku that the GOOGLE_CREDENTIALS var is called ga-creds.json
+
+## Credits
+
+### Content:
+<br>
+
+This article was followed in order to implement google cloud storage for static image hosting.
+* [how-to-use-google-cloud-storage-with-django-application](https://medium.com/@mohammedabuiriban/how-to-use-google-cloud-storage-with-django-application-ff698f5a740f)
+<br>
+<br>
+
+This  article was followed in order to implement google cloud storage for static image hosting:   
+* [django-imagefield-rename-file-on-upload](https://www.dangtrinh.com/2015/11/django-imagefield-rename-file-on-upload.html)
+<br>
+<br>
+
+This  article was followed in order to implement average rating calculations in the correct way
+* [How to calculate average of some field in Dango models and send it to rest API?](https://django.fun/en/qa/16172/)
