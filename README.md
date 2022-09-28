@@ -42,6 +42,38 @@ This Epic covers all API endpoint creation and database connections relating to 
 **Reviews**
 
 This Epic covers all API endpoint creation and database connections relating to the CRUD functionality of Artist reviews and average rating as displayed on user profile.
+<hr>
+
+## Technologies
+
+* Django
+    * Main framework used for application creation
+* Django REST Framework
+    * Framework used for creating API
+* Google Cloud Platform
+    * Used for static image hosting
+* Heroku
+    * Used for hosting the application
+* Git
+    * Used for version control
+* Github
+    * Repository for storing code base and docs
+
+
+
+### Version Control
+
+The site was created using the Visual Studio Code editor and pushed to github to the remote repository ‘Gars-Steakhouse’.
+
+The following git commands were used throughout development to push code to the remote repo:
+
+```git add <file>``` - This command was used to add the file(s) to the staging area before they are committed.
+
+```git commit -m “commit message”``` - This command was used to commit changes to the local repository queue ready for the final step.
+
+```git push``` - This command was used to push all committed code to the remote repository on github.
+
+<hr>
 
 ### Google Cloud Storage
 
