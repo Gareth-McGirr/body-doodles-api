@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 
 
 class Artist(models.Model):
+    """
+    Artist model, related to User
+    """
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     speciality = models.CharField(max_length=255)
     hourly_rate = models.IntegerField()
@@ -13,6 +16,9 @@ class Artist(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
+        """
+        Orders the objects by latest created first
+        """
         ordering = ["-created_at"]
 
     def __str__(self):

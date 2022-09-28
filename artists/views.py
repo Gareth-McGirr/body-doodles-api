@@ -11,6 +11,8 @@ class ArtistList(generics.ListCreateAPIView):
     """
     serializer_class = ArtistSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    # Calculate the total number of reviews and an average rating
+    # related to each artist.
     queryset = Artist.objects.annotate(
         reviews_count=Count('reviews', distinct=True),
         average_rating=Avg('reviews__rating')

@@ -39,9 +39,10 @@ class Profile(models.Model):
 
 
 def create_profile(sender, instance, created, **kwargs):
-    """Creates profile for user"""
+    """Creates profile when a new user is created"""
     if created:
         Profile.objects.create(owner=instance)
 
-
+# signal to listen for when a new user is saved
+# and create the profile
 post_save.connect(create_profile, sender=User)

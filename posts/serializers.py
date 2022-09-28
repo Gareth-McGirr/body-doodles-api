@@ -4,6 +4,10 @@ from likes.models import Like
 
 
 class PostSerializer(serializers.ModelSerializer):
+    """
+    Serializer for the post model
+    Adds three extra fields when returning a list of Comment instances
+    """
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
@@ -13,8 +17,12 @@ class PostSerializer(serializers.ModelSerializer):
     comments_count = serializers.ReadOnlyField()
 
     def validate_image(self, value):
-        if value.size > 2 * 1024 * 1024:
-            raise serializers.ValidationError('Image size larger than 2MB!')
+        """
+        Validates the image file size and height
+        and sends a message if file is too large to upload
+        """
+        if value.size > 5 * 1024 * 1024:
+            raise serializers.ValidationError('Image size larger than 5MB!')
         if value.image.height > 4096:
             raise serializers.ValidationError(
                 'Image height larger than 4096px!'
@@ -26,6 +34,9 @@ class PostSerializer(serializers.ModelSerializer):
         return value
 
     def get_like_id(self, obj):
+        """
+        returns the like id if it exists for the post
+        """
         user = self.context['request'].user
         if user.is_authenticated:
             like = Like.objects.filter(
@@ -35,6 +46,10 @@ class PostSerializer(serializers.ModelSerializer):
         return None
 
     def get_is_owner(self, obj):
+        """
+        returns true if the user making rthe request is 
+        the owner of the object
+        """
         request = self.context['request']
         return request.user == obj.owner
 
@@ -46,3 +61,4 @@ class PostSerializer(serializers.ModelSerializer):
             'title', 'content', 'image', 'image_filter',
             'like_id', 'likes_count', 'comments_count',
         ]
+        
