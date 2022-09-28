@@ -1,12 +1,16 @@
-# Body Doodles API
+# ***Body Doodles API***
 
 Body Doodles API is the backend service used by the [Body Doodles Application](https://github.com/Gareth-McGirr/body-doodles).
+<hr>
+<br>
 
-## Development Goals
+## **Development Goals**
 
 The goal of this API is provide a backend service to allow the Body Doodles front end application to perform, Create, Read, Update and Delete operations via the user interface.
+<hr>
+<br>
 
-## Agile Planning
+## **Agile Planning**
 
 This project was developed using agile methodologies by delivering small features in incremental sprints. There were 3 sprints in total, spaced out evenly over three weeks.
 
@@ -43,6 +47,7 @@ This Epic covers all API endpoint creation and database connections relating to 
 
 This Epic covers all API endpoint creation and database connections relating to the CRUD functionality of Artist reviews and average rating as displayed on user profile.
 <hr>
+<br>
 
 ## Technologies
 
@@ -59,6 +64,7 @@ This Epic covers all API endpoint creation and database connections relating to 
 * Github
     * Repository for storing code base and docs
 <hr>
+<br>
 
 ## Python Packages
 <details open>
@@ -129,6 +135,7 @@ Auto installed as package dependencies with django-storages[GOOGLE] to aid conne
 * googleapis-common-protos==1.56.4
 </details>
 <hr>
+<br>
 
 ## **Version Control** 
 
@@ -143,6 +150,38 @@ The following git commands were used throughout development to push code to the 
 ```git push``` - This command was used to push all committed code to the remote repository on github.
 
 <hr>
+<br>
+
+## **Heroku Deployment**
+
+The site was deployed to Heroku. The steps to deploy are as follows:
+
+* Navigate to heroku and create an account
+* Click the new button in the top right corner
+* Select create new app
+* Enter app name
+* Select region and click create app
+* Click the resources tab and search for Heroku Postgres
+* Select hobby dev and continue
+* Go to the settings tab and then click reveal config vars
+* Add the following config vars:
+  * SECRET_KEY: (Your secret key)
+  * DATABASE_URL: (This should already exist)
+  * ALLOWED_HOST:
+  * CLIENT_ORIGIN: url for the client front end react application that wil be making requests to these APIs
+  * CLIENT_ORIGIN_DEV: address of the local server used to preview and test UI during development of the front end client application
+  * GOOGLE_APPLICATION_CREDENTIALS:
+  * GOOGLE_CREDENTIALS: json file with authentication keys and tokens to access the google cloud bucket where images are stored
+  * GS_BUCKET_NAME: name of the bucket to upload images to.
+
+* Click the deploy tab
+* Scroll down to Connect to GitHub and sign in / authorize when prompted
+* In the search box, find the repositoy you want to deploy and click connect
+* Scroll down to Manual deploy and choose the main branch
+* Click deploy
+
+<hr>
+<br>
 
 ## **Google Cloud Storage**
 
