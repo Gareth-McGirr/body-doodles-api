@@ -73,6 +73,8 @@ This Epic covers all API endpoint creation and database connections relating to 
 
 ![ER Diagram](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/erdiagram.jpg)
 
+## Security
+
 ## Technologies
 
 * Django
@@ -162,6 +164,10 @@ Auto installed as package dependencies with django-storages[GOOGLE] to aid conne
 <hr>
 <br>
 
+## Testing
+
+## Deployment
+
 ## Version Control
 
 The site was created using the Visual Studio Code editor and pushed to github to the remote repository ‘Gars-Steakhouse’.
@@ -224,7 +230,61 @@ Create a .profile file with the following line inside:
 ```echo ${GOOGLE_CREDENTIALS} > /app/ga-creds.json```
 
 This line is used to instruct heroku that the GOOGLE_CREDENTIALS var is called ga-creds.json
-<hr>
+
+**Heroku**
+
+1. Log in to heroku and open the boody-doodle-api app
+2. Click settings
+3. Click Config vars
+4. Add the following variables:
+
+    * Key: GOOGLE_APPLICATION_CREDENTIALS -  Value: ga-creds.json
+    * Key: GOOGLE_CREDENTIALS - Value: json contents of the service account key
+    * Key: GS_BUCKET_NAME - Value: Name of the bucket where files are stored
+
+### Run Locally
+
+Navigate to the GitHub Repository you want to clone to use locally:
+
+- Click on the code drop down button
+- Click on HTTPS
+- Copy the repository link to the clipboard
+- Open your IDE of choice (git must be installed for the next steps)
+- Type git clone copied-git-url into the IDE terminal
+
+The project will now have been cloned on your local machine for use.
+
+In order to run, you will need to create an env.py file and add the config vars as used in heroku steps above.
+
+[Create Environment Variables locally](https://able.bio/rhett/how-to-set-and-get-environment-variables-in-python--274rgt5#:~:text=To%20set%20and%20get%20environment%20variables%20in%20Python%20you%20can,Get%20environment%20variables%20USER%20%3D%20os.)
+
+**Virtual Environment setup** 
+
+Windows:
+
+```
+python -m venv venv \
+venv/Scripts/activate \
+pip install -r requirements.txt
+```
+
+Mac:
+
+```
+python -m venv venv \
+source venv/bin/activate \
+pip install -r requirements.txt
+```
+
+### Forking
+
+Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.
+
+- Navigate to the GitHub Repository you want to fork.
+
+- On the top right of the page under the header, click the fork button.
+
+- This will create a duplicate of the full project in your GitHub Repository.
 
 ## Credits
 
