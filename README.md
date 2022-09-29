@@ -326,6 +326,32 @@ The API's were tested locally during development but the core testing was done a
 
 The results can be found in [Body Doodles](https://github.com/Gareth-McGirr/body-doodles)
 
+**Validator Results**
+
+All folders were run through flake8. Several issues appeared with various reasons, lines too long, blank spaces, indentation and docstrings.
+
+All issues were resolved with the exception of lines too long in migration files (these are auto generated so I did not fix) and the auth validator lines in the settings.py which seem to be unbreakable but are framework code.
+
+A warning appeared for env.py being imported but unused although this is being used in the development version, so this was ignored.
+
+![artists](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/artists_validator.PNG)
+
+![comments](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/comments_validator.PNG)
+
+![contacts](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/contacts_validation.PNG)
+
+![drf_api](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/settings_validation.PNG)
+
+![followers](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/followers_validation.PNG)
+
+![likes](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/likes_validation.PNG)
+
+![posts](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/posts_validator.PNG)
+
+![profiles](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/profiles_validation.PNG)
+
+![reviews](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/reviews_validator.PNG)
+
 **Bugs and their fixes**
 
 A bug occured causing a 500 error on post and profile form submissions. It was caused by GCP not accepting dulicate file names so to remedy this, I created a function to renamed the files before uploading with a uuid.
