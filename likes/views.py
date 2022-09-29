@@ -3,6 +3,7 @@ from drf_api.permissions import IsOwnerOrReadOnly
 from .models import Like
 from .serializers import LikeSerializer
 
+
 class LikeList(generics.ListCreateAPIView):
     """
     List likes or create a like if logged in.
@@ -16,6 +17,7 @@ class LikeList(generics.ListCreateAPIView):
         Passes the user as the owner when a like is created
         """
         serializer.save(owner=self.request.user)
+
 
 class LikeDetail(generics.RetrieveDestroyAPIView):
     """

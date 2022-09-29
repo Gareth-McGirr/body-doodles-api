@@ -15,7 +15,6 @@ class CommentSerializer(serializers.ModelSerializer):
     created_at = serializers.SerializerMethodField()
     updated_at = serializers.SerializerMethodField()
 
-
     def get_is_owner(self, obj):
         """
         Returns true if the user is the creator of the comment
@@ -30,7 +29,6 @@ class CommentSerializer(serializers.ModelSerializer):
         eg. '2 days ago'
         """
         return naturaltime(obj.created_at)
-
 
     def get_updated_at(self, obj):
         """
