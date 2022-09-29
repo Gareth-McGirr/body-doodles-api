@@ -2,7 +2,6 @@ from rest_framework import serializers
 from .models import Artist
 
 
-
 class ArtistSerializer(serializers.ModelSerializer):
     """
     Artist serializer to add the owners profile image
@@ -15,7 +14,6 @@ class ArtistSerializer(serializers.ModelSerializer):
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     reviews_count = serializers.ReadOnlyField()
     average_rating = serializers.ReadOnlyField()
-
 
     def get_is_owner(self, obj):
         """
@@ -33,6 +31,7 @@ class ArtistSerializer(serializers.ModelSerializer):
         model = Artist
         fields = [
             'id', 'owner', 'is_owner', 'profile_id', 'profile_image',
-            'profile_image', 'speciality', 'hourly_rate', 'location', 'email',
-            'phone','created_at', 'updated_at', 'reviews_count', 'average_rating',
+            'profile_image', 'speciality', 'hourly_rate', 'location',
+            'email', 'phone', 'created_at', 'updated_at',
+            'reviews_count', 'average_rating',
         ]

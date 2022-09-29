@@ -27,6 +27,7 @@ class ArtistList(generics.ListCreateAPIView):
         'speciality',
         'location'
     ]
+
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
