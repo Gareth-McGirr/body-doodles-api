@@ -11,12 +11,13 @@ class ProfileSerializer(serializers.ModelSerializer):
     followers_count = serializers.ReadOnlyField()
     following_count = serializers.ReadOnlyField()
 
-
     def get_is_owner(self, obj):
+        """Get owner of object"""
         request = self.context['request']
         return request.user == obj.owner
 
     def get_following_id(self, obj):
+        """Get id of follower"""
         user = self.context['request'].user
         if user.is_authenticated:
             following = Follower.objects.filter(

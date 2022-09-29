@@ -27,7 +27,9 @@ class Profile(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=255, blank=True)
     content = models.TextField(blank=True)
-    image = models.ImageField(upload_to=rename_file, default="profile_images/default_profile.jpg")
+    image = models.ImageField(
+        upload_to=rename_file, default="profile_images/default_profile.jpg"
+    )
     artistId = models.IntegerField(null=True)
 
     class Meta:
@@ -38,10 +40,11 @@ class Profile(models.Model):
         return f"{self.owner}'s profile"
 
 
-def create_profile(sender, instance, created, **kwargs):
+def create_profile(sender, instance, created):
     """Creates profile when a new user is created"""
     if created:
         Profile.objects.create(owner=instance)
+
 
 # signal to listen for when a new user is saved
 # and create the profile
