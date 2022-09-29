@@ -47,7 +47,7 @@ class PostSerializer(serializers.ModelSerializer):
 
     def get_is_owner(self, obj):
         """
-        returns true if the user making rthe request is 
+        returns true if the user making rthe request is
         the owner of the object
         """
         request = self.context['request']
@@ -61,4 +61,3 @@ class PostSerializer(serializers.ModelSerializer):
             'title', 'content', 'image', 'image_filter',
             'like_id', 'likes_count', 'comments_count',
         ]
-        
