@@ -326,6 +326,10 @@ The API's were tested locally during development but the core testing was done a
 
 The results can be found in [Body Doodles](https://github.com/Gareth-McGirr/body-doodles)
 
+**Bugs and their fixes**
+
+A bug occured causing a 500 error on post and profile form submissions. It was caused by GCP not accepting dulicate file names so to remedy this, I created a function to renamed the files before uploading with a uuid.
+
 <hr>
 <br>
 
