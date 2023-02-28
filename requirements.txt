@@ -47,3 +47,4 @@ toml==0.10.2
 types-cryptography==3.3.23
 tzdata==2022.2
 urllib3==1.26.12
+whitenoise==6.4.0
