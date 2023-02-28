@@ -40,7 +40,7 @@ class Profile(models.Model):
         return f"{self.owner}'s profile"
 
 
-def create_profile(sender, instance, created, **kwargs):
+def create_profile(sender, instance, created):
     """Creates profile when a new user is created"""
     if created:
         Profile.objects.create(owner=instance)
